@@ -40,4 +40,15 @@ Certain directories are usually mounted on dedicated devices, including:
 
 - **/boot**: Generally mounted on a different device as it contains special information that the computer needs to boot. As the `/` is commonly on an LVM (Logical Volume Manager), volume, where the OS is not able to boot by default, the kernel and other files will need to be stored elsewhere.
 - **/boot/EFI**: If your PC or laptop makes use of EFI for the boot process, its own mount will be needed. 
-- **/var**: 
+- **/var**: Commonly on a dedicated device because it's able to expand dynamically in size. 
+- **/home**: Kept on a dedicated device to ensure good security. It's possible to mount it with certain options like `noexec` and `nodec` which helps to better security. It's advantageous to have home directories in a separate file system when installing in order to make sure they survive the reinstallation of the system.
+- **/usr**: Contains files for the operating system, and users normally do not need write access to this. It's a good idea to put this on a dedicated device which allows admins to configure this as a read-only mount.
+
+It's common to find servers that have other directories mounted on partitions or volumes, and is usually up to what the admin feels is best. 
+
+### An Overview of Mount Points and Devices
+
+Use the `mount` command to get an overview of all the mounted devices on the system. The `/proc/mounts` file is read to get the necessary information, and will show kernel interfaces too, leading to a large list of mounted devices. 
+
+Reading available disk space on mounted devices can be done with the `df -Th command`, and is helpful to get an overview of all the file systems that are mounted. Using the `-h` option makes it human readable, and the `-T` option shows which file system type is used for the various mounts. 
+
