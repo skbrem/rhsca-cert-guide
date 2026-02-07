@@ -46,7 +46,7 @@ Certain directories are usually mounted on dedicated devices, including:
 
 It's common to find servers that have other directories mounted on partitions or volumes, and is usually up to what the admin feels is best. 
 
-### An Overview of Mount Points and Devices
+### Mount Points and Devices
 
 Use the `mount` command to get an overview of all the mounted devices on the system. The `/proc/mounts` file is read to get the necessary information, and will show kernel interfaces too, leading to a large list of mounted devices. 
 
@@ -54,7 +54,7 @@ Reading available disk space on mounted devices can be done with the `df -Th com
 
 The `findmnt` command will show mounts and the relationships between different mounts. This is a good alternative to `mount` because there is not quite as much information to absorb. 
 
-### Understanding the `df` Command
+#### The `df` Command
 
 When using the `df` command, it will be displayed in seven columns, which includes:
 
@@ -69,7 +69,7 @@ When using the `df` command, it will be displayed in seven columns, which includ
 > [!tip] 
 > The sizes in `df` are reported in kibibytes. Use the `-m` option to display these in mebibytes. The `-h` option will display a human-readable format in KiB, MiB, GiB, TiB, or PiB. 
 
-## Managing Files
+## Management of Files
 
 The tasks for an admin include:
 
@@ -81,7 +81,7 @@ The tasks for an admin include:
 - Moving files and directories
 - Deleting files and directories
 
-### Working with Wildcards
+### Wildcards
 
 A wildcard is a shell feature that helps the user refer to many files in a simple way. 
 
@@ -91,7 +91,7 @@ A wildcard is a shell feature that helps the user refer to many files in a simpl
 | ? | Used to refer to one specific character that can be any character. `ls m?d` would match with *mad* and *mud*. |
 | [auo] | One character that may be selected from the range that is specified between square brackets. `ls m[auo]` may refer to mad, mud, or mod. |
 
-### Managing and Working with Directories
+### Working with Directories
 
 Linux works with directories in order to organise files. It's important to be able to walk through the directory structure. 
 
