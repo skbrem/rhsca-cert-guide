@@ -158,6 +158,17 @@ The command `rm` is used to delete files and directories. Use the `-r` option to
 
 On RHEL, when using the `rm` command as root, it will ask for confirmation. This is because the `rm` command is defined with the alias `rm -i`. It's possible to stop this behaviour using `-f` or to change the alias. Probably better to simply leave as it as it provides a chance to review the command being executed. 
 
+## Links
 
+Links work similarly to aliases in that they are aliases that are assigned to a file. There are both hard links and symbolic links, and it's important to understand both. 
 
+### Hard Links
 
+All admin data about files is stored as inodes. Every file on a Linux system has an inode attached to it. The inode contains information about the file, including:
+
+- Permissions
+- File owners
+- Date of creation, access, and modification
+- Date block where the contents of the file are contained
+
+The name of the file, however, is not stored in the inode. 
