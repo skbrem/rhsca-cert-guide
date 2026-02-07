@@ -113,4 +113,24 @@ When working with relative pathways, it's helpful to be able to move up one leve
 | --- | --- |
 | `ls -l` | Long listing, including info about file properties like permissions and creation date. |
 | `ls -a` | Shows all of the files in the directory, which includes hidden files. |
-| `ls -lrt` | Here, the `-t` option shows commands that are sorted by their modification date. 
+| `ls -lrt` | Here, the `-t` option shows commands that are sorted by their modification date. The most-recently modified files will be shown last because of the `-r` option. |
+| `ls -d` | This shows the names of directories, but not the contents of all directories that match the wildcards which are used with the `ls` command. |
+| `ls -R` | Shows the contents of the current directory as well as all of its subdirectories. It **R**ecursively descends all of the subdirectories. |
+
+When using the `ls` and `ls -l` commands, the files will sometimes be coloured. This is done to help differentiate between the different file types. This is different in other shells and servers. 
+
+### Copying Files and Directories
+
+The `cp` command is used to organise files on a server. To copy a single file, do the following:
+
+` cp /<path-to-file> /<path-to-destination`. 
+
+> [!tip] 
+> Trying to copy a file to a directory that does not exist will instead create a file with the name of that directory. This is not ideal and it would be better to get an error message to show. Always place a / after directory name to accomplish this, so:
+> 
+> `cp /etc/hosts /tmp/` rather than `cp /etc/hosts /tmp`
+
+It's possible to copy a whole subdirectory with the `cp` command. To do this, use the `-R` option, which stands for recursive, and it's an option that's used with many other Linux commands. 
+
+Use the `-R` option with something like copying the /etc directory and all of its contents to the /tmp directory by using the `cp -R /etc /tmp` command. 
+
