@@ -134,3 +134,26 @@ It's possible to copy a whole subdirectory with the `cp` command. To do this, us
 
 Use the `-R` option with something like copying the /etc directory and all of its contents to the /tmp directory by using the `cp -R /etc /tmp` command. 
 
+The `cp` command needs to done while considering the permission and other properties of the files. Without certain options, it's possible to lose these properties as they will not be copied across. 
+
+In order to make sure that the current permissions are preserved when coping, use the `-a` option, which makes `cp` work in archive mode. 
+
+Another thing to keep in mind with using `cp` is hidden files. By default, hidden files are **not** copied over, but there are solutions, including:
+
+- `cp /somedir.* /tmp`: which copies all files that have a name starting with a dot to /tmp. It will show an error message for directories that have names with a dot in /somedir, because the `-R` option was not used. 
+- `cp -a /somedir/ .`: Copies the entire directory of /somedir, including all of its contents, to the current directory. A subdirectory called *somedir* will be created in the current directory.
+- `cp -a /somedir/. .`: Copies all files, both regular and hidden, to current directory. (there is a space between the two dots at the end of the command.)
+
+### Moving Files and Directories
+
+The `mv` command is used to move files and directories, which moves from the current location and to a new location. It's also the command used to rename a file, which is nothing more than copying and deleting the original copy. How it works:
+
+- `mv file /tmp`:  Moves the file *file* from the current directory to /tmp.
+- `mkdir newdir; mv newfir /tmp`: Which creats a directory called *newdir* and then moves this directory to the directory /tmp. This will work if the source directory contains files.
+- `mv file1 file2`: Renames the file. 
+
+### Deleting Files and Directories
+
+
+
+
