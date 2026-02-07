@@ -52,3 +52,65 @@ Use the `mount` command to get an overview of all the mounted devices on the sys
 
 Reading available disk space on mounted devices can be done with the `df -Th command`, and is helpful to get an overview of all the file systems that are mounted. Using the `-h` option makes it human readable, and the `-T` option shows which file system type is used for the various mounts. 
 
+The `findmnt` command will show mounts and the relationships between different mounts. This is a good alternative to `mount` because there is not quite as much information to absorb. 
+
+### Understanding the `df` Command
+
+When using the `df` command, it will be displayed in seven columns, which includes:
+
+- Filesystem: This is the name of the device file that interacts with the disk being used. The actual devices in the output start with /dev. It's also possible to see a few tempfs devices, which are kernal devices that are used to create a temp file system within RAM. 
+- Type: The type of file system. 
+- Size: The size of the mounted device. 
+- Used: The amount of disk that the device has in use. 
+- Avail: The amount of available space on the disk.
+- Use%: The percentage of device that is currently being used. 
+- Mounted on: The directory the device is mounted on at the time. 
+
+> [!NOTE] 
+> The sizes in `df` are reported in kibibytes. Use the `-m` option to display these in mebibytes. The `-h` option will display a human-readable format in KiB, MiB, GiB, TiB, or PiB. 
+
+## Managing Files
+
+The tasks for an admin include:
+
+- Working with wildcards
+- Managing and working with directories
+- Working with absolute and relative pathnames
+- Listing both files and directories
+- Coping files and directories
+- Moving files and directories
+- Deleting files and directories
+
+### Working with Wildcards
+
+A wildcard is a shell feature that helps the user refer to many files in a simple way. 
+
+| Wildcard | Use | 
+| --- | --- |
+| * | An unlimited number of characters. Using a command like `ls *`shows all of the files in the current directory with the exception of those that start with a dot. |
+| ? | Used to refer to one specific character that can be any character. `ls m?d` would match with *mad* and *mud*. |
+| [auo] | One character that may be selected from the range that is specified between square brackets. `ls m[auo]` may refer to mad, mud, or mod. |
+
+### Managing and Working with Directories
+
+Linux works with directories in order to organise files. It's important to be able to walk through the directory structure. 
+
+> [!info] Absolute Filename
+> Also known as an absolute pathname, this is the complete path reference to a directory or file. It begins at the root directory, and will include all the subdirectories leading up to the current working directory or filename. 
+
+> [!info] Relative Filename
+> This is relative to the current directory, shown with the `pwd` command. Possible to get from the current directory up to the file that's needed. 
+
+When working with relative pathways, it's helpful to be able to move up one level from where you are. Let's take the example of being logged in as root and wanting to copy the file /home/steve/file.txt to the directory /home/john. The following solutions will allow you to do this:
+
+- Use `cp /home/steve/file.txt /home/john`. As we are using absolute pathnames, this command will always work.
+- If the current directory is /home, use `cp /steve/file.txt john`. Both the source file and the destination file are referred to as relative pathnames and for that reason do not start with a /. However, if the directory john does not exist, the `cp` command will create a file with the name john. To ensure that it copies to a directory and generates an error if one does not exist, use `cp steve/file.txt john/.
+- If the current directory is set to /home/steve, it's possible to use `cp file.txt ../john`. The name of the target file uses `..` which instructs it to go up on level. Followed by /john, so it's interpreted as going up on level and then look for the /john subdirectory. 
+
+### Listing Files and Directories
+
+| Command | Use |
+| --- | --- |
+| `ls -l` | Long listing, including info about file properties like permissions and creation date. |
+| `ls -a` | Shows all of the files in the directory, which includes hidden files. |
+| `ls -lrt` | Here, the `-t` option shows commands that are sorted by their modification date. 
