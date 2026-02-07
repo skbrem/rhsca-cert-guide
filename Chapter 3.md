@@ -95,10 +95,10 @@ A wildcard is a shell feature that helps the user refer to many files in a simpl
 
 Linux works with directories in order to organise files. It's important to be able to walk through the directory structure. 
 
-> [!info]
+> [!note]
 > Also known as an absolute pathname, this is the complete path reference to a directory or file. It begins at the root directory, and will include all the subdirectories leading up to the current working directory or filename. 
 
-> [!info]
+> [!note]
 > This is relative to the current directory, shown with the `pwd` command. Possible to get from the current directory up to the file that's needed. 
 
 When working with relative pathways, it's helpful to be able to move up one level from where you are. Let's take the example of being logged in as root and wanting to copy the file /home/steve/file.txt to the directory /home/john. The following solutions will allow you to do this:
