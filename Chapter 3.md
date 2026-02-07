@@ -66,7 +66,7 @@ When using the `df` command, it will be displayed in seven columns, which includ
 - Use%: The percentage of device that is currently being used. 
 - Mounted on: The directory the device is mounted on at the time. 
 
-> [!NOTE] 
+> [!tip] 
 > The sizes in `df` are reported in kibibytes. Use the `-m` option to display these in mebibytes. The `-h` option will display a human-readable format in KiB, MiB, GiB, TiB, or PiB. 
 
 ## Managing Files
